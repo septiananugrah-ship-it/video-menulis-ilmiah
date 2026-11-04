@@ -74,7 +74,7 @@ writeFileSync(
 );
 
 // ---------- Daftar bab untuk deskripsi YouTube / LMS ----------
-const PART_NAMES: Record<number, string> = {1: 'Prinsip & teori dasar', 2: 'Implementasi dalam kimia', 3: 'Penerapan di industri'};
+const PART_NAMES: Record<number, string> = {1: 'Persiapan', 2: 'Sumber & membaca', 3: 'Menyusun tulisan', 4: 'Mengutip', 5: 'Merakit & merevisi'};
 const chapters: string[] = ['Dari Kepala ke Kertas — Menulis Karya Ilmiah dari Nol · SCIENTIAN', ''];
 let lastPart = 0;
 for (const s of TIMELINE.scenes) {
@@ -84,7 +84,7 @@ for (const s of TIMELINE.scenes) {
     lastPart = s.part;
   }
   if (!s.part && lastPart && s.chapter) chapters.push('');
-  chapters.push(`${formatTime(s.start)} ${s.chapter ? `Bab ${s.chapter} · ` : ''}${s.id === 'hook' ? 'Pembuka: oksigen cair menempel di magnet' : s.title}`);
+  chapters.push(`${formatTime(s.start)} ${s.chapter ? `Bab ${s.chapter} · ` : ''}${s.id === 'hook' ? 'Pembuka: dua paragraf, satu topik' : s.title}`);
 }
 writeFileSync('naskah/BAB_YOUTUBE.txt', chapters.join('\n') + '\n');
 
